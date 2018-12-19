@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HiveDbAccess.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="HiveQuery.py" />
     <Compile Include="HiveWorker.py">
       <SubType>Code</SubType>
