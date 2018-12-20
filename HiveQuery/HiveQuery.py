@@ -1,3 +1,6 @@
+#! /usr/bin/python3
+
+import os
 import HiveWorker
 import HiveDbAccess
 
@@ -10,11 +13,16 @@ import HiveDbAccess
 
 
 
-def run():
-    worker = HiveWorker.Worker("AccountInformation.xml")
+def run(path):
+
+    accountFilename = os.path.join(path, "AccountInformation.xml")
+    databaseFilename = os.path.join(path, "DatabaseAccess.xml")
+
+
+    worker = HiveWorker.Worker(accountFilename)
     thermostat_info = worker.getTemperatureData()
 
-    database = HiveDbAccess.Worker("DatabaseAccess.xml")
+    database = HiveDbAccess.Worker(databaseFilename)
     database.StoreRecord(thermostat_info)
 
     return
@@ -23,6 +31,6 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    run(os.path.dirname(os.path.abspath(__file__)))
     exit
 
