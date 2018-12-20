@@ -32,10 +32,6 @@ class Worker(object):
         for element in root.findall("password"):
             self.password = element.text
 
-        print ("Username: {}".format(self.username))
-        #print ("Password: {}".format(self.password))
-
-    #
     # Obtain a session key
     #
     def login(self):

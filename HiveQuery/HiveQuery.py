@@ -12,11 +12,10 @@ import HiveDbAccess
 
 def run():
     worker = HiveWorker.Worker("AccountInformation.xml")
-    database = HiveDbAccess.Worker("DatabaseAccess.xml")
-
     thermostat_info = worker.getTemperatureData()
 
-    
+    database = HiveDbAccess.Worker("DatabaseAccess.xml")
+    database.StoreRecord(thermostat_info)
 
     return
 
